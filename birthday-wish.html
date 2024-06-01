@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Dad!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5dc;
+            color: #4b2e39;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 100%;
+            width: 800px;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #4b2e39;
+            background-color: #fff8e1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #8b4513;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slides {
+            display: none;
+            width: 50%;
+            height: auto;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+        .active {
+            display: block;
+            opacity: 1;
+        }
+        .text-container {
+            font-size: 1em;
+            line-height: 1.4;
+            font-weight: 600;
+            padding: 0 10px;
+        }
+        @media (max-width: 1200px) {
+            .header {
+                font-size: 2.5em;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+                width: 100%;
+            }
+            .header {
+                font-size: 2em;
+            }
+            .text-container {
+                font-size: 0.9em;
+            }
+            .slides{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Happy Birthday, Dad!</div>
+        <div class="slideshow-container">
+            <img class="slides active" src="your-fathers-image1.jpg" alt="Picture of My Father 1">
+            <img class="slides" src="your-fathers-image2.jpg" alt="Picture of My Father 2">
+            <img class="slides" src="your-fathers-image3.jpg" alt="Picture of My Father 3">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="text-container">
+            <p>Dear Dad,</p>
+            <p>On this special day, I want to take a moment to express how grateful I am to have you in my life. Your wisdom, kindness, and unwavering support have been the cornerstone of our family. You have taught me so much, from how to ride a bike to how to navigate the complexities of life with grace and dignity. Your love has been a constant source of strength and inspiration. As you celebrate your birthday, I hope you know how deeply you are loved and appreciated. May this year bring you all the joy and happiness you deserve. Happy Birthday, Dad!</p>
+        </div>
+    </div>
+
+    <script>
+        // Check if the user has verified the PIN
+        if (localStorage.getItem('pinVerified') !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // Change image every 3 seconds
+
+        // Initialize the first slide
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
