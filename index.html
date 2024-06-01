@@ -62,6 +62,9 @@
             color: red;
             margin-top: 10px;
         }
+        .instruction{
+            text-align: left;
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 10px;
@@ -82,7 +85,12 @@
         <div class="header">Enter PIN</div>
         <div class="math-problem">
             Solve the problem to get the PIN: <br>
-            <strong>((12 × 345) + (6789 - 1234)) × (56 ÷ 2) + 7890 ÷ 2 - 345 × 123 = ?</strong>
+            <ol class="instruction">
+                <li>The PIN consists of 9 digits. The first five digits correspond to the answer of question 1, and the last four digits correspond to the answer of question 2.</li>
+                <li>(question 1): <strong><br>(((50+25)×(20+1))×15)-2215</strong></li>
+                <li>(question 2): <strong><br>((((36×5)+((10×10)−64))×4)×2)+144</strong></li>
+
+            </ol>
         </div>
         <div class="form-container">
             <input type="text" id="pin" placeholder="Enter the answer" required>
